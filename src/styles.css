@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+#todo-input {
+    height: 2em;
+    width: 20em;
+    text-align: center;
+}
+
+.list-group {
+    width: 20em;
+}
+
+.completed {
+    text-decoration: line-through;
+}
