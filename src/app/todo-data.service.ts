@@ -6,15 +6,14 @@ export class TodoDataService {
 
   lastId: number = 0;
   todos: Todo[] = [];
+
   constructor() {}
 
   addTodo(todo: Todo): TodoDataService {
     if (!todo.id) {
       todo.id = ++this.lastId;
     }
-    this.todos.unshift(todo);
-    var newArray = JSON.stringify(this.todos);
-    console.log(newArray);
+    this.todos.push(todo);
     return this;
   }
 

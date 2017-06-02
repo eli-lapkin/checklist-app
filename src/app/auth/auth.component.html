@@ -1,0 +1,32 @@
+<form>
+  <button class="btn btn-default" (click)="loginWithGoogle()" style="vertical-align: middle;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/600px-Google_%22G%22_Logo.svg.png" alt="#"  style="height: 1.2em;">
+    &nbsp; Sign in With Google
+  </button>
+  &nbsp;
+  <button class="btn btn-default" (click)="toggleRegister()" style="vertical-align: middle;">
+    {{ !showForm ? 'Register With Email' : 'Hide Registration Form' }}
+  </button>
+  &nbsp;
+  Already Have an Account?
+  <a (click)="toggleLogin()">
+    {{ !showSignIn ? 'Sign in Here' : 'Hide Login Form' }}
+  </a>
+</form>
+<br>
+<div *ngIf="showForm">
+  <form action="post">
+    <input [(ngModel)]="name" required type="text" name="name" id="name" placeholder="Name"><br>
+    <input [(ngModel)]="email" required type="email" name="email" id="email" placeholder="Email"><br>
+    <input [(ngModel)]="password" required type="password" name="password" id="password" placeholder="Password"><br>
+    <input [(ngModel)]="password2" required type="password" name="password2" id="password2" placeholder="Confirm Password"><br><br>
+    <button class="btn btn-default" id="btn-login" (click)="registerWithEmail()" >Sign Up!</button>
+  </form>
+</div>
+<div *ngIf="showSignIn">
+  <form action="post" (ngSubmit)="loginWithEmail()">
+    <input [(ngModel)]="email" required type="email" name="email" id="email" placeholder="Email"><br>
+    <input [(ngModel)]="password" required type="password" name="password" id="password" placeholder="Password"><br><br>
+    <button class="btn btn-default" id="btn-login">Log In</button>
+  </form>
+</div>

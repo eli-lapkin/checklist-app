@@ -15,6 +15,13 @@ import { HomeComponent } from './home/home.component';
 
 import { routes } from './app.router';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import { AuthComponent } from './auth/auth.component';
+import { NavComponent } from './nav/nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +30,18 @@ import { routes } from './app.router';
     TodoListItemComponent,
     TodoListFooterComponent,
     ListsComponent,
-    HomeComponent
+    HomeComponent,
+    AuthComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routes
+    routes,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [ TodoDataService ],
   bootstrap: [ AppComponent ]
