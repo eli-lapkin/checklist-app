@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
 
 export const router: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'lists', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'lists', component: ListsComponent }
 ];
