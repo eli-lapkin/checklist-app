@@ -1,3 +1,6 @@
 <section class="todoapp">
-  <app-todo>Loading...</app-todo>
+  <app-todo *ngFor="let childItem of childItems">Loading...</app-todo>
+  <br>
+  <button class="btn btn-default btn-circle-large"
+    (click)="duplicate()">+</button>
 </section>

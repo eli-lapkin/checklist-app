@@ -3,11 +3,9 @@
     width: 20em;
     text-align: center;
 }
-
 .list-group {
     width: 20em;
 }
-
 .completed {
     text-decoration: line-through;
 }

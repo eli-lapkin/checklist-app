@@ -1,22 +1,29 @@
-<h1>Todos</h1>
-<input type="text" class="big-input" placeholder="What needs to be done?" autofocus="true"
-  (keyup.enter)="addTodo();" [(ngModel)]="todo.title">
-<br><br>
-<section>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let todo of todos | async" style="border: 1px solid #90A8BE">
-      <button class="btn-success btn-circle">&#x2713;</button> &nbsp;
-      {{todo.title}}
-      <button class="btn-danger btn-circle pull-right">&#x2717;</button> &nbsp;
-      <span class="badge">{{todo.id}}</span>
-    </li>
-  </ul>
-</section>
-<footer *ngIf="(todos | async)?.length > 0">
-  {{ (todos | async)?.length }}
-  {{ (todos | async)?.length === 1 ? 'item' : 'items'}} left
-  &nbsp;
-  <span *ngIf="(todos | async)?.length > 1">
-    <button class="btn-danger" (click)="deleteAll()">Delete All</button>
-  </span>
-</footer>
+<div class="list" >
+  <h1>{{ list.title.length === 0 ? 'New To Do List' : list.title }}</h1>
+  <input type="text" class="big-input" placeholder="Name your list" autofocus="true"
+    (keyup.enter)="createList()" [(ngModel)]="list.title" [hidden]="!list.hidden">
+  <input type="text" class="big-input" placeholder="What needs to be done?" autofocus="true"
+    (keyup.enter)="addTodo()" [(ngModel)]="todo.title" [hidden]="list.hidden">
+  <br><br>
+  <section>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let todo of todos | async">
+        <button class="btn-success btn-circle" [class.completed-btn]="todo.complete === 'true'"
+          (click)="toggleComplete(todo.$key, {complete: 'true'})">&#x2713;</button> &nbsp;
+        <span [class.completed]="todo.complete === 'true'">
+          {{ todo.title }}
+        </span>
+        <button class="btn-danger btn-circle pull-right"
+          (click)="deleteTodo(todo.$key)">&#x2717;</button> &nbsp;
+      </li>
+    </ul>
+  </section>
+  <footer *ngIf="(todos | async)?.length > 0">
+    {{ (todos | async)?.length }}
+    {{ (todos | async)?.length === 1 ? 'Item' : 'Items' }} Left
+    &nbsp;
+    <span *ngIf="(todos | async)?.length > 1">
+      <button class="btn-danger" (click)="deleteAll()">Delete All</button>
+    </span>
+  </footer>
+</div>

@@ -1,0 +1,22 @@
+.badge {
+    background-color: #90A8BE;
+    margin-top: 3px;
+}
+.list-group-item {
+    border: 1px solid #90A8BE;
+}
+.btn-circle {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 3px;
+    font-size: 12px;
+    line-height: 0.8;
+    border-radius: 15px;
+}
+.completed-btn {
+    background-color: lightgrey;
+}
+.completed-btn:active {
+        background-color: darkgrey;
+    }

@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css']
 })
-export class ListsComponent { }
+export class ListsComponent {
+  public childItems = [1];
+
+  public duplicate() {
+    this.childItems.push(this.childItems.length);
+  }
+}
